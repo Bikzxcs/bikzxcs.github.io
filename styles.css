@@ -1,0 +1,116 @@
+.radio-player {
+    background-image: url('https://s3.amazonaws.com/i.snag.gy/jVmR3k.jpg');
+    background-size: 100%;
+    background-position-y: -200px;
+    background-position-x: -100px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 820px    ; /* Adjust width to control the size */
+    height: 70px; /* Adjust height to match width for 1:1 ratio */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.radio-player::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(37, 0, 48, 0.651); /* Adjust overlay color and opacity here */
+    border-radius: 5px; /* Match the container's border-radius */
+    z-index: 0;
+}
+
+.radio-player .d-flex {
+    position: absolute; /* Ensure children elements are positioned relative */
+    z-index: 1; /* Ensure the content is above the overlay */
+    margin-top: -16px;
+    margin-left: -16px;
+}
+
+#play-pause-btn {
+    background-color: #51029b;
+    width: 70px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -5px;
+    border: none;
+}
+
+.flex-grow-1{
+    margin-right: 245px;
+}
+
+#now-playing, #streamer{
+    color: white;
+    text-shadow: 1px 1px rgba(0,0,0,0.5);
+    font-size: 15px;
+    margin-top: 20px;
+    line-height: 1;
+}
+
+#streamer{
+    margin-right: 15px;
+}
+
+.spacer {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.volume-container {
+    flex: 0 0 auto; /* Prevent the volume container from growing */
+    display: flex;
+    align-items: center;
+    background-color: #51029b;
+    width: 200px;
+    margin-right: -16px;
+}
+
+.volume-container img {
+    width: 24px; /* Adjust size of the speaker icon */
+    margin-right: 10px; /* Adjust margin for spacing between icon and slider */
+    margin-left: 20px;
+    margin-bottom: 5px;
+    background-color:#ffffff;
+    border-radius: 10px;
+}
+
+#volume-slider {
+    width: 100%; /* Take up the entire width available */
+    margin-bottom: 5px;
+    margin-right: 20px;
+}
+
+.d-flex.align-items-center.mb-3 {
+   width: 50%;
+}
+
+#streamer {
+    position: relative;
+    z-index: 2;
+}
+
+#streamer-img {
+    position: absolute;
+    bottom: -45px;
+    right: 330px;
+    width: 80px; /* Adjust size as needed */
+    opacity: 1;
+    z-index: 1;
+    object-fit: cover;
+    border-radius: 0%;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background-color: #ffffff; /* Change to desired color */
+    border-radius: 10px;
+}
+
