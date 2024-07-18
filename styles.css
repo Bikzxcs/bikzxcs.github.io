@@ -33,6 +33,31 @@
     margin-left: -16px;
 }
 
+.scroll-container {
+    white-space: nowrap; /* Prevents text from wrapping to the next line */
+    overflow: hidden; /* Hides any overflowed content */
+    position: relative;
+    width: 40%; /* Adjust width as needed */
+}
+
+.scrolling-text {
+    display: inline-block; /* Allows the text to be scrollable */
+    padding-left: 100%; /* Moves the text outside the viewable area initially */
+    animation: scroll-left 10s linear infinite; /* Adjust the duration as needed */
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+@keyframes scroll-left {
+    from {
+
+    }
+    to {
+        left: 0;
+        transform: translateX(-100%); /* End position */
+    }
+}
+
+
 #play-pause-btn {
     background-color: #51029b;
     width: 70px;

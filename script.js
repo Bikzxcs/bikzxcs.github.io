@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const streamerImg = document.getElementById('streamer-img');
 
     let isPlaying = false;
-    const streamerName = "Funkyhabbo"; // Define the streamer's name
+    const defaultStreamerName = "AutoDJ";
+    const defaultStreamerImage = "https://www.habbo.com/habbo-imaging/avatarimage?figure=ch-3342-75-75.lg-3526-80.sh-3524-64-1408.ha-5241&direction=4&head_direction=3&action=wav&gesture=sml&size=m";
 
     playPauseBtn.addEventListener('click', () => {
         if (isPlaying) {
@@ -33,12 +34,25 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const response = await fetch('https://nisradio.xyz/api/nowplaying/1');
             const data = await response.json();
-            artistSpan.textContent = data.now_playing.song.artist;
-            titleSpan.textContent = data.now_playing.song.title;
-            streamerNameSpan.textContent = data.now_playing.streamer; // Set the streamer name
-            streamerImg.src = `https://www.habbo.com/habbo-imaging/avatarimage?direction=4&head_direction=3&action=wav&gesture=sml&size=m&user=${data.now_playing.streamer}`; // Set the streamer image
+            const artist = data.now_playing.song.artist;
+            const title = data.now_playing.song.title;
+
+            artistSpan.textContent = artist;
+            titleSpan.textContent = title;
+            streamerNameSpan.textContent = data.now_playing.streamer;
+
+            const streamerName = data.now_playing.streamer || defaultStreamerName;
+            const streamerImage = data.now_playing.streamer
+                ? `https://www.habbo.com/habbo-imaging/avatarimage?direction=4&head_direction=3&action=wav&gesture=sml&size=m&user=${data.now_playing.streamer}`
+                : defaultStreamerImage;
+
+            streamerNameSpan.textContent = streamerName;
+            streamerImg.src = streamerImage;
         } catch (error) {
             console.error('Error fetching now playing data:', error);
+            // Fallback to default values if an error occurs
+            streamerNameSpan.textContent = defaultStreamerName;
+            streamerImg.src = defaultStreamerImage;
         }
     }
 
