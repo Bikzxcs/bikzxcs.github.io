@@ -15,7 +15,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 150px;
+            padding: 10px 10px;
             background-color: rgba(0, 0, 0, 0.7);  /* Transparent black */
             color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -83,29 +83,21 @@
             height: 50px;
             object-fit: cover;
         }
-
-        :root{
-            --percentage: 30%;
-            --main-color: 255,255,255;
-            --el-bg-color: 220,220,220;
-        }
-
-        #sound-slider__container{
+        #sound-slider__container {
             display: flex;
             width: 200px;
             height: 35px;
             padding: 7px 20px;
-            background: rgba(var(--main-color),0.07);
-            border: 1px solid rgba(var(--main-color),0.03);
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.03);
             border-radius: 10px;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
         }
-
-        #sound-slider__container::after{
-            content:"";
+        #sound-slider__container::after {
+            content: "";
             height: 100%;
             opacity: 0;
             left: 0px;
@@ -113,24 +105,17 @@
             top: 0px;
             transition: opacity 500ms;
             width: 100%;
-            background: radial-gradient(
-                500px circle at var(--mouse-x) var(--mouse-y), 
-                rgba(var(--main-color), 0.06),
-                transparent 40%
-            );
-            z-index:-1;
+            background: radial-gradient(500px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%);
+            z-index: -1;
         }
-
-        #sound-slider__container:hover::after{
-            opacity:1;
+        #sound-slider__container:hover::after {
+            opacity: 1;
         }
-
-        #sound-picto{
-            fill: rgb(var(--el-bg-color));
+        #sound-picto {
+            fill: rgb(220, 220, 220);
             margin-right: 1em;
             cursor: pointer;
         }
-
         #sound-slider {
             margin: 0 10px;
             appearance: none;
@@ -140,40 +125,35 @@
             outline: none;
             transition: .2s;
             cursor: pointer;
-            background: rgba(var(--el-bg-color),0.5);
-            background-image: linear-gradient(rgb(var(--main-color)),rgb(var(--main-color)));
+            background: rgba(220, 220, 220, 0.5);
+            background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
             background-size: calc(var(--percentage) - 9px) 100%;
             background-repeat: no-repeat;
             position: relative;
             overflow: hidden;
         }
-
-/* round the volume progress */
-        #sound-slider::after{
+        #sound-slider::after {
             position: absolute;
             content: "";
             height: 100%;
             width: 10px;
             border-radius: 0 1in 1in 0;
-            background-color:rgb(var(--main-color));
+            background-color: rgb(255, 255, 255);
             transition: .2s;
             left: calc(var(--percentage) - 10px);
         }
-
-        #sound-slider::-webkit-slider-thumb{
+        #sound-slider::-webkit-slider-thumb {
             appearance: none;
-            visibility:hidden;
+            visibility: hidden;
             width: 1px;
             height: 10px;
         }
-
-        #sound-slider:hover{
+        #sound-slider:hover {
             height: 1em;
         }
-
-        #volume{
+        #volume {
             font-family: sans-serif;
-            color: rgb(var(--el-bg-color));
+            color: rgb(220, 220, 220);
             min-width: 2em;
             text-align: right;
         }
@@ -194,18 +174,20 @@
         </div>
         <div class="right-section">
             <div id="sound-slider__container">
-                <svg id="sound-picto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 17h-5v-10h5v10zm2-10v10l9 5v-20l-9 5zm11.008 2.093c.742.743 1.2 1.77 1.198 2.903-.002 1.133-.462 2.158-1.205 2.9l1.219 1.223c1.057-1.053 1.712-2.511 1.715-4.121.002-1.611-.648-3.068-1.702-4.125l-1.225 1.22zm2.142-2.135c1.288 1.292 2.082 3.073 2.079 5.041s-.804 3.75-2.096 5.039l1.25 1.254c1.612-1.608 2.613-3.834 2.616-6.291.005-2.457-.986-4.681-2.595-6.293l-1.254 1.25z"/></svg>
+                <svg id="sound-picto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M5 17h-5v-10h5v10zm2-10v10l9 5v-20l-9 5zm11.008 2.093c.742.743 1.2 1.77 1.198 2.903-.002 1.133-.462 2.158-1.205 2.9l1.219 1.223c1.057-1.053 1.712-2.511 1.715-4.121.002-1.611-.648-3.068-1.702-4.125l-1.225 1.22zm2.142-2.135c1.288 1.292 2.082 3.073 2.079 5.041s-.804 3.75-2.096 5.039l1.25 1.254c1.612-1.608 2.613-3.834 2.616-6.291.005-2.457-.986-4.681-2.595-6.293l-1.254 1.25z"/>
+                </svg>
                 <input type="range" value="30" min="0" max="100" id="sound-slider">
                 <p id="volume">30</p>
-              </div>
+            </div>
             <div class="dj-info">
                 <img id="djImage" src="" alt="DJ Image">
                 <p><span>DJ:</span> <span id="dj">Loading...</span></p>
             </div>
         </div>
     </div>
-    <audio id="radioPlayer" src="https://nisradio.xyz/listen/test/radio.mp3" preload="none"></audio>
-    
+    <audio id="radioPlayer" src="https://nisradio.xyz/listen/nishabbo/radio.mp3" preload="none"></audio>
+
     <script>
         async function fetchNowPlaying() {
             const stationId = '1';  // Station ID set to 1
@@ -253,50 +235,50 @@
 
         // Function to set volume of the audio element
         const soundSVG = `<path d="M5 17h-5v-10h5v10zm2-10v10l9 5v-20l-9 5zm11.008 2.093c.742.743 1.2 1.77 1.198 2.903-.002 1.133-.462 2.158-1.205 2.9l1.219 1.223c1.057-1.053 1.712-2.511 1.715-4.121.002-1.611-.648-3.068-1.702-4.125l-1.225 1.22zm2.142-2.135c1.288 1.292 2.082 3.073 2.079 5.041s-.804 3.75-2.096 5.039l1.25 1.254c1.612-1.608 2.613-3.834 2.616-6.291.005-2.457-.986-4.681-2.595-6.293l-1.254 1.25z"/>`
-const muteSVG = `<path d="M5 17h-5v-10h5v10zm2-10v10l9 5v-20l-9 5zm15.324 4.993l1.646-1.659-1.324-1.324-1.651 1.67-1.665-1.648-1.316 1.318 1.67 1.657-1.65 1.669 1.318 1.317 1.658-1.672 1.666 1.653 1.324-1.325-1.676-1.656z"/>`
+        const muteSVG = `<path d="M5 17h-5v-10h5v10zm2-10v10l9 5v-20l-9 5zm15.324 4.993l1.646-1.659-1.324-1.324-1.651 1.67-1.665-1.648-1.316 1.318 1.67 1.657-1.65 1.669 1.318 1.317 1.658-1.672 1.666 1.653 1.324-1.325-1.676-1.656z"/>`
 
-const root = document.querySelector(':root');
-const volume = document.querySelector('#volume');
-const soundPicto = document.querySelector('#sound-picto');
-const slider = document.querySelector('#sound-slider');
-const sliderContainer = document.querySelector('#sound-slider__container');
-const radioPlayer = document.getElementById('radioPlayer');
+        const root = document.querySelector(':root');
+        const volume = document.querySelector('#volume');
+        const soundPicto = document.querySelector('#sound-picto');
+        const slider = document.querySelector('#sound-slider');
+        const sliderContainer = document.querySelector('#sound-slider__container');
+        const radioPlayer = document.getElementById('radioPlayer');
 
-function handleRangeUpdate(el){
-  if (el.target){el = el.target}
-  volume.innerHTML = el.value;
-  root.style.setProperty('--percentage', `${el.value * 100 / (el.max - el.min)}%`);
-  el.value > 0 ? soundPicto.innerHTML = soundSVG : soundPicto.innerHTML = muteSVG;
-  radioPlayer.volume = el.value / 100;  // Update the audio element's volume
-}
+        function handleRangeUpdate(el){
+          if (el.target){el = el.target}
+          volume.innerHTML = el.value;
+          root.style.setProperty('--percentage', `${el.value * 100 / (el.max - el.min)}%`);
+          el.value > 0 ? soundPicto.innerHTML = soundSVG : soundPicto.innerHTML = muteSVG;
+          radioPlayer.volume = el.value / 100;  // Update the audio element's volume
+        }
 
-handleRangeUpdate(slider)
+        handleRangeUpdate(slider)
 
-//toggle the volume 
-let lastVolume = 30
-function toggleMute(){
-  if(slider.value > 0){
-    lastVolume = slider.value;
-    slider.value = 0;
-    handleRangeUpdate(slider);
-  }else{
-      slider.value = lastVolume;
-      handleRangeUpdate(slider);
-  }
-}
+        //toggle the volume 
+        let lastVolume = 30
+        function toggleMute(){
+          if(slider.value > 0){
+            lastVolume = slider.value;
+            slider.value = 0;
+            handleRangeUpdate(slider);
+          }else{
+              slider.value = lastVolume;
+              handleRangeUpdate(slider);
+          }
+        }
 
-slider.addEventListener('input', handleRangeUpdate);
-soundPicto.addEventListener('click', toggleMute);
+        slider.addEventListener('input', handleRangeUpdate);
+        soundPicto.addEventListener('click', toggleMute);
 
-/* inspired by https://codepen.io/Hyperplexed/pen/MWQeYLW */
-sliderContainer.onmousemove = e => {
-  const rect = sliderContainer.getBoundingClientRect(),
-  x = e.clientX - rect.left,
-  y = e.clientY - rect.top;
-  
-  sliderContainer.style.setProperty("--mouse-x", `${x}px`);
-  sliderContainer.style.setProperty("--mouse-y", `${y}px`);
-}
+        /* inspired by https://codepen.io/Hyperplexed/pen/MWQeYLW */
+        sliderContainer.onmousemove = e => {
+          const rect = sliderContainer.getBoundingClientRect(),
+          x = e.clientX - rect.left,
+          y = e.clientY - rect.top;
+          
+          sliderContainer.style.setProperty("--mouse-x", `${x}px`);
+          sliderContainer.style.setProperty("--mouse-y", `${y}px`);
+        }
     </script>
 </body>
 </html>
