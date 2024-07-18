@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const audio = new Audio('https://nisradio.xyz/listen/test/radio.mp3');
+    const audio = new Audio('https://nisradio.xyz/listen/nishabbo/radio.mp3');
     const playPauseBtn = document.getElementById('play-pause-btn');
     const playIcon = document.getElementById('play-icon');
     const pauseIcon = document.getElementById('pause-icon');
