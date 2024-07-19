@@ -9,11 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const streamerNameSpan = document.getElementById('streamer-name');
     const volumeSlider = document.getElementById('volume-slider');
     const streamerImg = document.getElementById('streamer-img');
+    
 
     let isPlaying = false;
     const defaultStreamerName = "Auto DJ";
     const defaultStreamerImage = "https://www.habbo.com/habbo-imaging/avatarimage?figure=ch-3342-75-75.lg-3526-80.sh-3524-64-1408.ha-5241&direction=4&head_direction=3&action=wav&gesture=sml&size=m";
 
+    audio.volume = volumeSlider.value / 100;
+    
     playPauseBtn.addEventListener('click', () => {
         if (isPlaying) {
             audio.pause();
