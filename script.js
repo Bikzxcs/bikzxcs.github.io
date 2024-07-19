@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const audio = new Audio('https://nisradio.xyz/listen/nishabbo/radio.mp3');
+    const audio = new Audio('https://nisradio.xyz/listen/main/radio.mp3');
     const playPauseBtn = document.getElementById('play-pause-btn');
     const playIcon = document.getElementById('play-icon');
     const pauseIcon = document.getElementById('pause-icon');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const streamerImg = document.getElementById('streamer-img');
 
     let isPlaying = false;
-    const defaultStreamerName = "AutoDJ";
+    const defaultStreamerName = "Auto DJ";
     const defaultStreamerImage = "https://www.habbo.com/habbo-imaging/avatarimage?figure=ch-3342-75-75.lg-3526-80.sh-3524-64-1408.ha-5241&direction=4&head_direction=3&action=wav&gesture=sml&size=m";
 
     playPauseBtn.addEventListener('click', () => {
@@ -57,5 +57,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     fetchNowPlaying();
-    setInterval(fetchNowPlaying, 15000); // Refresh every 15 seconds
+    setInterval(fetchNowPlaying, 5000); // Refresh every 15 seconds
 });
