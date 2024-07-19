@@ -77,11 +77,19 @@
     margin-right: 245px;
 }
 
-#now-playing, #streamer{
+#now-playing{
     color: white;
     text-shadow: 1px 1px rgba(0,0,0,0.5);
     font-size: 15px;
     margin-top: 20px;
+    line-height: 1;
+}
+
+ #streamer{
+    color: white;
+    text-shadow: 1px 1px rgba(0,0,0,0.5);
+    font-size: 15px;
+    margin-top: 5px;
     line-height: 1;
 }
 

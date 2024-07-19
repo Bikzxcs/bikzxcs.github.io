@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pauseIcon = document.getElementById('pause-icon');
     const artistSpan = document.getElementById('artist');
     const titleSpan = document.getElementById('title');
+    const listenerSpan = document.getElementById('listener');
     const streamerNameSpan = document.getElementById('streamer-name');
     const volumeSlider = document.getElementById('volume-slider');
     const streamerImg = document.getElementById('streamer-img');
@@ -36,10 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = await response.json();
             const artist = data.now_playing.song.artist;
             const title = data.now_playing.song.title;
+            const listener = data.listeners.total;
 
             artistSpan.textContent = artist;
             titleSpan.textContent = title;
             streamerNameSpan.textContent = data.now_playing.streamer;
+            listenerSpan.textContent = listener;
 
             const streamerName = data.now_playing.streamer || defaultStreamerName;
             const streamerImage = data.now_playing.streamer
