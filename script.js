@@ -26,7 +26,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const volumeSlider = document.getElementById('volume-slider');
     const volumeNum = document.getElementById('volnum');
 
+    liveSpan.style.display = 'none';
+    autoSpan.style.display = 'none';
+    offlineSpan.style.display = 'block';
+
+    scrollYes.style.display = 'none';  // Hide scrolling text
+    scrollNo.style.display = 'block';
+
     audio.volume = volumeSlider.value / 100;
+
+    
 
     volumeSlider.addEventListener('input', () => {
         audio.volume = volumeSlider.value / 100;
@@ -127,6 +136,9 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(fetchNowPlaying, 5000); // Refresh every 5 seconds
 
     function updateUI(isOnline, isLive){
+
+        offlineSpan.style.display = "block";
+
         if (isOnline === false){
             console.log('Offline');
             liveSpan.style.display = 'none';
