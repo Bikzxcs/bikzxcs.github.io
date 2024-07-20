@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = await response.json();
             const artist = data.now_playing.song.artist;
             const title = data.now_playing.song.title;
-            const listener = data.listeners.total;
+            const listener = data.listeners.unique;
 
             artistSpan.textContent = artist;
             titleSpan.textContent = title;
