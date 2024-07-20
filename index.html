@@ -3,51 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio Embed</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Radio Embed 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 </head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+</style>
+
 <body>
-    <div class="container mt-4">
-        <div class="radio-player p-3">        
-          <img id="streamer-img" class="streamer-img" src="" alt="Streamer Avatar"> 
-            <div class="d-flex justify-content-between position-relative">
-              <button id="play-pause-btn" class="btn btn-primary mr-3">
-                <svg id="play-icon" width="48" height="48" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 5v14l11-7z"/>
-                </svg>
-                <svg id="pause-icon" width="48" height="48" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                    <path d="M6 19h4V5H6zm8-14v14h4V5z"/>
-                </svg>
-            </button>
-                <div id="now-playing" class="scroll-container">
-                    <strong>Now Playing</strong><br>
-                    <div class="scrolling-text">
-                    <span id="artist">Loading...</span> - <span id="title">Loading...</span>
+    <div id="radio-box" class="container-fluid">
+        <div id="first-row" class="row" style="height:60px">
+            <div id="play-btn" class="col button order-1">
+                <button id="play-pause-btn" class="btn btn-primary">
+                    <svg id="play-icon" width="48" height="48" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg id="pause-icon" width="48" height="48" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <path d="M6 19h4V5H6zm8-14v14h4V5z"/>
+                    </svg>
+                </button>
+            </div>
+                <div id="now-playing" class="col order-2">
+                    <div id="np" class="scroll-container">
+                        <strong id="np">Now Playing</strong><br>
+                        <div id="scroll-yes" class="scrolling-text">
+                        <span id="artist">Loading...</span> - <span id="title">Loading...</span>
+                        </div>
+                        <div id="scroll-no">
+                        <span id="artist2">Loading...</span> - <span id="title2">Loading...</span>
+                        </div>
                     </div>
                 </div>
-                <div class="spacer">
+                <div id="avatar" class="color order-3">
+                    <img id="streamer-img" class="streamer-img" src="" alt="Streamer Avatar"> 
                 </div>
-                <div id="streamer" class="text-right">
-                    <strong>On Air:</strong><br>
-                    <span id="streamer-name">Loading...</span>
-                    <div>
-                        <br>
-                        <strong>Listerners: </strong>
-                        <span id="listener">0</span>
-                    </div>
-                </div>
-                <div class="volume-container">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/500px-Speaker_Icon.svg.png" alt="Speaker Icon"> <!-- Adjust source and alt text as needed -->
-                  <input type="range" id="volume-slider" min="0" max="100" value="35" class="form-control-range">
-              </div>
+            </div>
+        <div id="mid-row" class="row">
+            <div id="volumeslide" class="col w-100">
+                <img id="volicon" src="https://s3.amazonaws.com/i.snag.gy/alp5kz.jpg" alt="Vol">
+                <input type="range" id="volume-slider" min="0" max="100" value="35" class="form-control-range">
+                <span id="volnum">35</span>
+            </div>
+        </div>
+        <div id="second-row" class="row">
+            <div id="status" class="col order-1">
+                <div id="live">Live</div>
+                <div id="auto">Auto</div>
+                <div id="offline">Offline</div>
+            </div>
+            <div id="list" class="color order-2">
+                <img id="listicon" src="https://png.pngtree.com/png-vector/20240322/ourmid/pngtree-headset-in-pixel-art-style-png-image_12180499.png" alt="Listeners">
+            <span id="listenertest">Loading...</span>
+            </div>
+            <div id="streamer" class="col order-3">
+                <img id="djicon" src="https://i.ibb.co/fk81QWj/dgbtvly-8c1ed9d6-af23-4a61-ac57-75752733fdca.gif" alt="DJ">
+                <span id="streamer-name">Loading...</span>
             </div>
         </div>
     </div>
+</body>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
+status
 </html>

@@ -1,153 +1,278 @@
-.radio-player {
-    background-image: url('https://s3.amazonaws.com/i.snag.gy/jVmR3k.jpg');
-    background-size: 100%;
-    background-position-y: -200px;
-    background-position-x: -100px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 820px    ; /* Adjust width to control the size */
-    height: 70px; /* Adjust height to match width for 1:1 ratio */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    overflow: hidden;
+body {
+    --bs-body-color: white;
 }
 
-.mt-4{
-    align-items: center;
+#radio-box {
+    background-image: url('https://s3.amazonaws.com/i.snag.gy/0NTlw1.jpg');
+    border-radius: 10px;
+    border: 2px solid rgb(37, 10, 36);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; /* Positions the pseudo-element relative to this container */
+    overflow: hidden; /* Ensures no overflow from the ::before pseudo-element */
 }
 
-.radio-player::before {
-    content: '';
-    position: absolute;
+#radio-box::before {
+    content: ''; /* Necessary for pseudo-elements */
+    position: absolute; /* Positions the overlay relative to #radio-box */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(37, 0, 48, 0.651); /* Adjust overlay color and opacity here */
-    border-radius: 5px; /* Match the container's border-radius */
-    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.65); /* Adjust color and opacity as needed */
+    border-radius: 10px; /* Matches the border-radius of #radio-box */
+    z-index: 1; /* Ensures the overlay is above the background image but below the content */
+    pointer-events: none; /* Ensures the overlay does not interfere with interactions */
 }
 
-.radio-player .d-flex {
-    position: absolute; /* Ensure children elements are positioned relative */
-    z-index: 1; /* Ensure the content is above the overlay */
-    margin-top: -16px;
-    margin-left: -16px;
+#radio-box > * {
+    position: relative; /* Ensure content is positioned above the overlay */
+    z-index: 2; /* Makes sure the content is above the overlay */
+}
+
+
+.button{
+    -ms-flex: 0 0 60px;
+    flex: 0 0 60px;
+    margin: 0;
+    padding: 0;
+}
+
+#first-row{
+    border-bottom: 2px solid white;
+    box-shadow: 0px 5px rgba(0, 0, 0, 0.10)
+}
+
+#play-pause-btn{
+    background-color: rgb(118, 73, 136);
+    border-top-left-radius: 10px;
+    border-radius: 0px;
+    border-left: 0px solid black;
+    border-right: 0px solid white;
+    border-bottom: 2px solid white;
+    max-width: 128px;
+    max-height: 61px;
+    margin-top: -1px;
+}
+
+#now-playing{
+    line-height: 18px;
+    width:50%;
+}
+
+#np{
+    margin-top: 10px;
 }
 
 .scroll-container {
     white-space: nowrap; /* Prevents text from wrapping to the next line */
     overflow: hidden; /* Hides any overflowed content */
     position: relative;
-    width: 40%; /* Adjust width as needed */
+    width: 100%; /* Adjust width as needed */
+    display: inline-block;
 }
 
 .scrolling-text {
     display: inline-block; /* Allows the text to be scrollable */
     padding-left: 100%; /* Moves the text outside the viewable area initially */
-    animation: scroll-left 10s linear infinite; /* Adjust the duration as needed */
+    animation: scroll-left 5s linear infinite; /* Adjust the duration as needed */
     white-space: nowrap; /* Prevents text from wrapping */
 }
 
 @keyframes scroll-left {
-    from {
-
+    0% {
+ 
     }
-    to {
+    100% {
         left: 0;
-        transform: translateX(-100%); /* End position */
+        transform: translateX(-270%); /* End off-screen on the left */
     }
 }
 
-
-#play-pause-btn {
-    background-color: #51029b;
-    width: 70px;
-    height: 80px;
-    display: flex;
+#avatar{
     align-items: center;
-    justify-content: center;
-    margin-top: -5px;
-    border: none;
+    -ms-flex: 0 0 60px;
+    flex: 0 0 60px;
+    height: 100%;   
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+    margin-right: 1px;
 }
 
-.flex-grow-1{
-    margin-right: 245px;
+#streamer-img{
+    margin-top: -14px;
 }
 
-#now-playing{
-    color: white;
-    text-shadow: 1px 1px rgba(0,0,0,0.5);
-    font-size: 15px;
-    margin-top: 20px;
-    line-height: 1;
+#volumeslide {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-top: 7px;
 }
 
- #streamer{
-    color: white;
-    text-shadow: 1px 1px rgba(0,0,0,0.6);
-    font-size: 15px;
-    margin-top: 5px;
-    line-height: 1;
-}
-
-#streamer{
-    margin-right: 15px;
-}
-
-.spacer {
-    flex: 1;
-    margin-right: 20px;
-}
-
-.volume-container {
-    flex: 0 0 auto; /* Prevent the volume container from growing */
-    display: flex;
-    align-items: center;
-    background-color: #51029b;
-    width: 200px;
-    margin-right: -16px;
-}
-
-.volume-container img {
-    width: 24px; /* Adjust size of the speaker icon */
-    margin-right: 10px; /* Adjust margin for spacing between icon and slider */
-    margin-left: 20px;
-    margin-bottom: 5px;
-    background-color:#ffffff;
-    border-radius: 10px;
+#volicon{
+    max-width:10%;
+    filter: invert(1);
+    width: 15px;
+    height: 15px;
+    margin-bottom: 0px;
+    margin-right: 10px;
 }
 
 #volume-slider {
-    width: 100%; /* Take up the entire width available */
-    margin-bottom: 5px;
-    margin-right: 20px;
+    max-width: 90%; /* Take up the entire width available */
+    flex-shrink: 0;
 }
 
-.d-flex.align-items-center.mb-3 {
-   width: 50%;
+#volnum{
+    font-family: Play;
+    font-weight: 700;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-top: 2px;
 }
 
-#streamer {
+
+#list{
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: 10px;
+    border-radius: 10px;
+    max-width: 20%;
+    overflow: hidden;
     position: relative;
-    z-index: 2;
+    text-align: center;
 }
 
-#streamer-img {
-    position: absolute;
-    bottom: -45px;
-    right: 330px;
-    width: 80px; /* Adjust size as needed */
-    opacity: 1;
-    z-index: 1;
-    object-fit: cover;
-    border-radius: 0%;
+#listicon{
+    width:20px;
+    height:20px;
+    margin-bottom: 2px;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
-    background-color: #ffffff; /* Change to desired color */
+#listenertest{
+    font-family: Play;
+    font-weight: 700;
+}
+
+#djicon{
+    width:20px;
+    height:20px;
+    margin-bottom: 2px;
+}
+
+#streamer{
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: 10px;
+    border-radius: 10px;
+    max-width: 50%;
+    font-family: Play;
+    font-weight: 700;
+    text-align: center;
+}
+
+#status{
+    text-align:center;
+    font-family: Play;
+    font-weight: 700;
+    max-width: 30%;
+}
+
+#live {  
+    background-color: rgb(196, 88, 88);
+    margin: 10px;
     border-radius: 10px;
 }
 
+#auto {
+    background-color: rgb(199, 162, 0);
+    margin: 10px;
+    border-radius: 10px;
+}
+
+#offline {
+    background-color: rgb(94, 94, 94); /* Add specific color for offline if needed */
+    margin: 10px;
+    border-radius: 10px;
+}
+
+/* General slider styles */
+#volume-slider {
+    width: 100%;
+    -webkit-appearance: none; /* Override default styles */
+    appearance: none;
+    background: transparent; /* Remove default background */
+}
+
+/* Webkit browsers (Chrome, Safari) */
+#volume-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px; /* Adjust the height to make it thinner */
+    background: white; /* Default track color */
+    border-radius: 2px;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default thumb styles */
+    appearance: none;
+    width: 16px; /* Adjust the width of the thumb */
+    height: 16px; /* Adjust the height of the thumb */
+    background: white; /* Set the thumb color to white */
+    border-radius: 50%; /* Make the thumb circular */
+    cursor: pointer;
+    margin-top: -6px; /* Center the thumb on the track */
+}
+
+#volume-slider::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, rgb(118, 73, 136) var(--progress-value), white var(--progress-value));
+}
+
+/* Mozilla browsers (Firefox) */
+#volume-slider::-moz-range-track {
+    width: 100%;
+    height: 4px; /* Adjust the height to make it thinner */
+    background: white; /* Default track color */
+    border-radius: 2px;
+}
+
+#volume-slider::-moz-range-progress {
+    background: purple; /* Progress trail color */
+    height: 4px;
+    border-radius: 2px;
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 16px; /* Adjust the width of the thumb */
+    height: 16px; /* Adjust the height of the thumb */
+    background: white; /* Set the thumb color to white */
+    border-radius: 50%; /* Make the thumb circular */
+    cursor: pointer;
+}
+
+/* Internet Explorer and Edge */
+#volume-slider::-ms-track {
+    width: 100%;
+    height: 4px; /* Adjust the height to make it thinner */
+    background: transparent; /* Remove default background */
+    border-color: transparent; /* Remove default border */
+    color: transparent; /* Remove default color */
+}
+
+#volume-slider::-ms-fill-lower {
+    background: purple; /* Progress trail color */
+    border-radius: 2px;
+}
+
+#volume-slider::-ms-fill-upper {
+    background: white; /* Default track color */
+    border-radius: 2px;
+}
+
+#volume-slider::-ms-thumb {
+    width: 16px; /* Adjust the width of the thumb */
+    height: 16px; /* Adjust the height of the thumb */
+    background: white; /* Set the thumb color to white */
+    border-radius: 50%; /* Make the thumb circular */
+    cursor: pointer;
+    margin-top: 0; /* Center the thumb on the track */
+}
