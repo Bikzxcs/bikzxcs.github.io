@@ -1,6 +1,13 @@
 body {
     --bs-body-color: white;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
 }
+
+  element::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
 
 #radio-box {
     background-image: url('https://s3.amazonaws.com/i.snag.gy/0NTlw1.jpg');
