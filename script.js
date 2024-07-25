@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const audio = new Audio('https://nisradio.xyz/listen/main/radio.mp3');
+    let audio;
     const playPauseBtn = document.getElementById('play-pause-btn');
     const playIcon = document.getElementById('play-icon');
     const pauseIcon = document.getElementById('pause-icon');
@@ -33,15 +33,12 @@ document.addEventListener('DOMContentLoaded', function() {
     scrollYes.style.display = 'none';  // Hide scrolling text
     scrollNo.style.display = 'block';
 
-    audio.volume = volumeSlider.value / 100;
-
-    
-
     volumeSlider.addEventListener('input', () => {
-        audio.volume = volumeSlider.value / 100;
+        if (audio) {
+            audio.volume = volumeSlider.value / 100;
+        }
         volumeNum.textContent = volumeSlider.value;
     });
-
 
     function updateSliderBackground() {
         const value = volumeSlider.value;
@@ -53,14 +50,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial update
     updateSliderBackground();
 
-
     let isPlaying = false;
 
     playPauseBtn.addEventListener('click', () => {
+        if (!audio) {
+            audio = new Audio('https://nisradio.xyz/listen/main/radio.mp3');
+            audio.volume = volumeSlider.value / 100;
+        }
+
         if (isPlaying) {
             audio.pause();
             playIcon.style.display = 'block';
             pauseIcon.style.display = 'none';
+            audio = null;
         } else {
             audio.play();
             playIcon.style.display = 'none';
