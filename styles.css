@@ -2,7 +2,7 @@ body {
     --bs-body-color: white;
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
-    overflow-y: scroll;
+    overflow: hidden;
 }
 
   element::-webkit-scrollbar {
