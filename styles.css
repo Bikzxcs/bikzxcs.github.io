@@ -50,6 +50,10 @@ body {
     box-shadow: 0px 5px rgba(0, 0, 0, 0.10)
 }
 
+#second-row{
+    margin-left: -22px;
+}
+
 #play-pause-btn{
     background-color: rgb(118, 73, 136);
     border-top-left-radius: 10px;
@@ -283,3 +287,16 @@ body {
     cursor: pointer;
     margin-top: 0; /* Center the thumb on the track */
 }
+
+#sr{
+    position: relative;
+    font-family: Play;
+    font-weight: 700;
+    margin-bottom: 5px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    border: none;
+    letter-spacing: 2px;
+}
+
